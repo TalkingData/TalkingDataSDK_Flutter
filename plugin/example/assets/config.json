@@ -1,0 +1,52 @@
+{
+  "pageConfig" : [
+    {
+      "icon" : "images/basefunction.png",
+      "title" : "Init",
+      "content" : "SDK初始化",
+      "pageName": "Init"
+    },
+    {
+      "icon" : "images/basefunction.png",
+      "title" : "基础统计",
+      "content" : "提供应用使用、新增设备、活跃设备及设备分布等基础统计",
+      "pageName": "BaseStatisticsPage"
+    },
+    {
+      "icon" : "images/page.png",
+      "title" : "页面统计",
+      "content" : "用于帮助开发者追踪用户对页面的访问情况，如页面访问量、停留时长、页面间跳转",
+      "pageName": "PageStatisticsPage"
+    },
+    {
+      "icon" : "images/custom.png",
+      "title" : "自定义事件",
+      "content" : "用户帮助开发者追踪所有希望追踪的用户与App的交互行为。特指代码事件",
+      "pageName": "CustomEventPage"
+    },
+    {
+      "icon" : "images/basefunction.png",
+      "title" : "标准事件",
+      "content" : "提供标准化事件接口，基于标准化事件提供针对性的分析服务",
+      "pageName": "StandardEventPage"
+    },
+    {
+      "icon" : "images/basefunction.png",
+      "title" : "行业接口",
+      "content" : "提供用户行业功能",
+      "pageName": "GetIndustry"
+    },
+    {
+      "icon" : "images/basefunction.png",
+      "title" : "获取OAID",
+      "content" : "获取oaid(仅Android)",
+      "pageName": "GetOAID"
+    },
+    {
+      "icon" : "images/basefunction.png",
+      "title" : "获取DeviceId",
+      "content" : "获取DeviceId",
+      "pageName": "GetDeviceId"
+    }
+  ]
+}

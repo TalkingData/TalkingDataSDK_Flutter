@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - talkingdata_universal_plugin (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - talkingdata_universal_plugin (from `.symlinks/plugins/talkingdata_universal_plugin/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  talkingdata_universal_plugin:
+    :path: ".symlinks/plugins/talkingdata_universal_plugin/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  talkingdata_universal_plugin: b08c48425b1b691e1da7b02ac02eeb5144e74a4e
+
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
+
+COCOAPODS: 1.6.1
