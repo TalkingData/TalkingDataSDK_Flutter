@@ -1,4 +1,4 @@
-//version: 5.0.1
+//version: 5.0.2
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'dart:io';
@@ -44,10 +44,9 @@ class TalkingDataSDK {
   }
 
   static Future<void> onEvent({
-    required String eventId, double? value, Map? params}) async {
+    required String eventId, Map? params}) async {
     return await _channel.invokeMethod('onEvent', <String, dynamic>{
       'eventID': eventId,
-      'value': value,
       'params': params
     });
   }

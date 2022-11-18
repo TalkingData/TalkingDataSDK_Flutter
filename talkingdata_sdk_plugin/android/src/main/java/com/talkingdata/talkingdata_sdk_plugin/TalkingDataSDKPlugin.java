@@ -81,7 +81,6 @@ public class TalkingDataSDKPlugin implements FlutterPlugin, MethodCallHandler {
         }
         TalkingDataSDK.onEvent(mContext,
                 (String) call.argument("eventID"),
-                (double) call.argument("value"),
                 paramWith
         );
         break;

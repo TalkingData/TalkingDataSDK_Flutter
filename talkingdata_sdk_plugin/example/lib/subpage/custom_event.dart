@@ -115,23 +115,6 @@ class _CustomEventPageState extends State<CustomEventPage>{
                       ),
                       onPressed: _submitEventData,
                       color: Colors.blueAccent,
-                    ),
-                    TextField(
-                    controller: _controllerEventValue,
-                      decoration: InputDecoration(
-                          hintText: 'value'
-                      ),
-                    ),
-
-                    RaisedButton(
-                      child: Text(
-                        '提交带value的事件数据',
-                        style: TextStyle(
-                            color: Colors.white
-                        ),
-                      ),
-                      onPressed: _submitEventDataWithValue,
-                      color: Colors.blueAccent,
                     )
                   ],
                 ),
@@ -174,46 +157,9 @@ class _CustomEventPageState extends State<CustomEventPage>{
     }
     TalkingDataSDK.onEvent(
       eventId: _controllerEventID.text,
-        value:0.0,
       params: map
     );
   }
 
-  void _submitEventDataWithValue(){
-    if(_controllerEventID.text.length == 0){
-      showDialog(
-          context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context){
-            return AlertDialog(
-              title: Text('错误：'),
-              content: Text('请填写事件ID ！'),
-              actions: <Widget>[
-                FlatButton(
-                  child: Text('OK'),
-                  onPressed: (){
-                    Navigator.of(context).pop();
-                  },
-                )
-              ],
-            );
-        }
-      );
-      return;
-    }
-    Map map = {};
-    if(_controllerKey1.text.length > 0){
-      map[_controllerKey1.text] = _controllerValue1.text;
-    }
-
-    if(_controllerKey2.text.length > 0){
-      map[_controllerKey2.text] = _controllerValue2.text;
-    }
-    TalkingDataSDK.onEvent(
-      eventId: _controllerEventID.text,
-      value:double.parse(_controllerEventValue.text),
-      params: map
-    );
-  }
 }
 

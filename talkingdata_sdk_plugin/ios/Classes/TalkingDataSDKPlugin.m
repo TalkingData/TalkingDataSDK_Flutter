@@ -155,11 +155,10 @@
       } else if([@"onEvent" isEqualToString:call.method]){
           NSString * eventID = [self checkArgument:call.arguments forKey:@"eventID" ofType:[NSString class]];
           NSDictionary * params = [self checkArgument:call.arguments forKey:@"params" ofType:[NSDictionary class]];
-          NSNumber * value = [self checkArgument:call.arguments forKey:@"value" ofType:[NSNumber class]];
 
           if (eventID) {
   //#error 记得更新最新的.a和.h，然后打开下边的注释。
-              [TalkingDataSDK onEvent:eventID value:value.doubleValue parameters:params];
+              [TalkingDataSDK onEvent:eventID parameters:params];
           }
       } else if ([@"onAddItemToShoppingCart" isEqualToString:call.method]){
           NSNumber * amount = [self checkArgument:call.arguments forKey:@"amount" ofType:[NSNumber class]];
