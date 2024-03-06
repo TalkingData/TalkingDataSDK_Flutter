@@ -43,38 +43,38 @@ class _IndustryPageState extends State<IndustryPage> {
       home: Scaffold(
         body: ListView(
           children: [
-            RaisedButton(child: const Text('onCreateCard'),onPressed: (){
+            ElevatedButton(child: const Text('onCreateCard'),onPressed: (){
               String profile = "user01";
               String method = "WePay";
               String content = "Game-Item-02";
               TalkingDataSDK.onCreateCard(profile,method,content);
             }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onReceiveDeepLink'),
                 onPressed: () {
                   String link = "https://www.talkingdata.com";
                   TalkingDataSDK.onReceiveDeepLink(link);
                 }),
-            RaisedButton(child: const Text('onFavorite'),onPressed: (){
+            ElevatedButton(child: const Text('onFavorite'),onPressed: (){
               String category = "book";
               String content = "GodFather";
               TalkingDataSDK.onFavorite(category,content);
             }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onShare'),
                 onPressed: () {
                   String profile = "user01";
                   String content = "best content";
                   TalkingDataSDK.onShare(profile, content);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onPunch'),
                 onPressed: () {
                   String profile = "user01";
                   String punchid = "punchId01";
                   TalkingDataSDK.onPunch(profile, punchid);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onSearch'),
                 onPressed: () {
                   TalkingDataSearch search = TalkingDataSearch(
@@ -89,7 +89,7 @@ class _IndustryPageState extends State<IndustryPage> {
                   );
                   TalkingDataSDK.onSearch(search);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onReservation'),
                 onPressed: () {
                   String profile = "user01";
@@ -100,7 +100,7 @@ class _IndustryPageState extends State<IndustryPage> {
                   TalkingDataSDK.onReservation(
                       profile, reservationId, category, amount, term);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onBooking'),
                 onPressed: () {
                   String profile = "user01";
@@ -111,21 +111,21 @@ class _IndustryPageState extends State<IndustryPage> {
                   TalkingDataSDK.onBooking(
                       profile, bookId, category, amount, term);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onContact'),
                 onPressed: () {
                   String profile = "user01";
                   String content = "MyContent";
                   TalkingDataSDK.onContact(profile, content);
                 }),
-            RaisedButton(child: const Text('onViewItem'),onPressed: (){
+            ElevatedButton(child: const Text('onViewItem'),onPressed: (){
               String category = "Book";
               String itemId = "9112";
               String name = "GodFather";
               int unitPrice = 99;
               TalkingDataSDK.onViewItem(itemId,category,name,unitPrice);
             }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onViewShoppingCart'),
                 onPressed: () {
                   TalkingDataShoppingCart shoppingCart = TalkingDataShoppingCart();
@@ -135,7 +135,7 @@ class _IndustryPageState extends State<IndustryPage> {
                       'itemID333103428', 'Food', 'banana', 777, 888);
                   TalkingDataSDK.onViewShoppingCart(shoppingCart);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onPlaceOrder'),
                 onPressed: () {
                   TalkingDataOrder order = TalkingDataOrder(
@@ -147,7 +147,7 @@ class _IndustryPageState extends State<IndustryPage> {
                   String profileId = "user-01";
                   TalkingDataSDK.onPlaceOrder(profileId,order);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onPay'),
                 onPressed: () {
                   String profile = "user01";
@@ -159,7 +159,7 @@ class _IndustryPageState extends State<IndustryPage> {
                   int itemCount = 999;
                   TalkingDataSDK.onPay(profile,orderId,amount,currencyType,payType,itemId,itemCount);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onLearn'),
                 onPressed: () {
                   String profile = "user01";
@@ -169,7 +169,7 @@ class _IndustryPageState extends State<IndustryPage> {
                   TalkingDataSDK.onLearn(
                       profile, course, begin, duration);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onRead'),
                 onPressed: () {
                   String profile = "user01";
@@ -178,7 +178,7 @@ class _IndustryPageState extends State<IndustryPage> {
                   int duration = 3600;
                   TalkingDataSDK.onRead(profile, book, begin, duration);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onBrowse'),
                 onPressed: () {
                   String profile = "user01";
@@ -188,7 +188,7 @@ class _IndustryPageState extends State<IndustryPage> {
                   TalkingDataSDK.onBrowse(
                       profile, content, begin, duration);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onTransaction'),
                 onPressed: () {
                   TalkingDataTransaction transaction = TalkingDataTransaction(
@@ -203,7 +203,7 @@ class _IndustryPageState extends State<IndustryPage> {
                       content:"Chicken");
                   TalkingDataSDK.onTransaction("user-01", transaction);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onCredit'),
                 onPressed: () {
                   String profile = "user01";
@@ -211,7 +211,7 @@ class _IndustryPageState extends State<IndustryPage> {
                   String content = "content";
                   TalkingDataSDK.onCredit(profile, amount, content);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onChargeBack'),
                 onPressed: () {
                   String profile = "user01";
@@ -221,48 +221,48 @@ class _IndustryPageState extends State<IndustryPage> {
                   TalkingDataSDK.onChargeBack(
                       profile, orderid, reason, type);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onCreateRole'),
                 onPressed: () {
                   String name = "BatMan";
                   TalkingDataSDK.onCreateRole(name);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onTrialFinished'),
                 onPressed: () {
                   String profile = "user01";
                   String content = "Gaming";
                   TalkingDataSDK.onTrialFinished(profile, content);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onGuideFinished'),
                 onPressed: () {
                   String profile = "user01";
                   String content = "Gaming";
                   TalkingDataSDK.onGuideFinished(profile, content);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onPreviewFinished'),
                 onPressed: () {
                   String profile = "user01";
                   String content = "Gaming";
                   TalkingDataSDK.onPreviewFinished(profile, content);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onFreeFinished'),
                 onPressed: () {
                   String profile = "user01";
                   String content = "Gaming";
                   TalkingDataSDK.onFreeFinished(profile, content);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onLevelPass'),
                 onPressed: () {
                   String profile = "user01";
                   String levelId = "level01";
                   TalkingDataSDK.onLevelPass(profile, levelId);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onAchievementUnlock'),
                 onPressed: () {
                   String profile = "user01";
@@ -270,7 +270,7 @@ class _IndustryPageState extends State<IndustryPage> {
                   TalkingDataSDK.onAchievementUnlock(
                       profile, achievementId);
                 }),
-            RaisedButton(
+            ElevatedButton(
                 child: const Text('onOrderPaySucc'),
                 onPressed: () {
                   String profile = "user-01";

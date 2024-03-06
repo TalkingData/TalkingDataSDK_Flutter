@@ -5,6 +5,10 @@ class StandardEventPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    final ButtonStyle  buttonStyle = ElevatedButton.styleFrom(
+        backgroundColor: Colors.blueAccent
+    );
+
     return Container(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
       child: ListView(
@@ -21,32 +25,33 @@ class StandardEventPage extends StatelessWidget{
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  const Expanded(
-                    child: RaisedButton(
-                        child: Text(
+
+                  Expanded(
+                    child: ElevatedButton(
+                        child: const Text(
                             '查看商品',
                           style: TextStyle(
                             color: Colors.white
                           ),
                         ),
                         onPressed: _onViewItem,
-                        color: Colors.blueAccent,
+                        style: buttonStyle
                     ),
                     flex: 1,
                   ),
                   Container(
                     width: 16,
                   ),
-                  const Expanded(
-                    child: RaisedButton(
-                      child: Text(
+                  Expanded(
+                    child: ElevatedButton(
+                      child: const Text(
                         '添加购物车',
                         style: TextStyle(
                             color: Colors.white
                         ),
                       ),
                       onPressed: _onAddItemToShoppingCart,
-                      color: Colors.blueAccent,
+                      style: buttonStyle,
                     ),
                     flex: 1,
                   )
@@ -54,32 +59,32 @@ class StandardEventPage extends StatelessWidget{
               ),
               Row(
                 children: <Widget>[
-                  const Expanded(
-                    child: RaisedButton(
-                      child: Text(
+                  Expanded(
+                    child: ElevatedButton(
+                      child: const Text(
                         '查看购物车',
                         style: TextStyle(
                             color: Colors.white
                         ),
                       ),
                       onPressed: _onViewShoppingCart,
-                      color: Colors.blueAccent,
+                      style: buttonStyle,
                     ),
                     flex: 1,
                   ),
                   Container(
                     width: 16,
                   ),
-                  const Expanded(
-                    child: RaisedButton(
-                      child: Text(
+                  Expanded(
+                    child: ElevatedButton(
+                      child: const Text(
                         '订单',
                         style: TextStyle(
                             color: Colors.white
                         ),
                       ),
                       onPressed: _onPlaceOrder,
-                      color: Colors.blueAccent,
+                      style: buttonStyle,
                     ),
                     flex: 1,
                   )
@@ -87,32 +92,32 @@ class StandardEventPage extends StatelessWidget{
               ),
               Row(
                 children: <Widget>[
-                  const Expanded(
-                    child: RaisedButton(
-                      child: Text(
+                   Expanded(
+                    child: ElevatedButton(
+                      child: const Text(
                         '支付订单',
                         style: TextStyle(
                             color: Colors.white
                         ),
                       ),
                       onPressed: _onOrderPaySucc,
-                      color: Colors.blueAccent,
+                      style: buttonStyle,
                     ),
                     flex: 1,
                   ),
                   Container(
                     width: 16,
                   ),
-                  const Expanded(
-                    child: RaisedButton(
-                      child: Text(
+                  Expanded(
+                    child: ElevatedButton(
+                      child:const Text(
                         '取消订单',
                         style: TextStyle(
                             color: Colors.white
                         ),
                       ),
                       onPressed: _onCancelOrder,
-                      color: Colors.blueAccent,
+                      style: buttonStyle,
                     ),
                     flex: 1,
                   )

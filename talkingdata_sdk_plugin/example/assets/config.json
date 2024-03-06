@@ -2,8 +2,8 @@
   "pageConfig" : [
     {
       "icon" : "images/basefunction.png",
-      "title" : "Init",
-      "content" : "SDK初始化",
+      "title" : "Init&startA",
+      "content" : "SDK初始化以及启动分析",
       "pageName": "Init"
     },
     {

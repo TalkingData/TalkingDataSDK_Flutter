@@ -22,7 +22,9 @@ class _CustomEventPageState extends State<CustomEventPage>{
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    final buttonStyle = ElevatedButton.styleFrom(
+        backgroundColor: Colors.blueAccent
+    );
     return Container(
       padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
       constraints: BoxConstraints.expand(),
@@ -35,10 +37,10 @@ class _CustomEventPageState extends State<CustomEventPage>{
                 padding: EdgeInsets.all(8),
                 child: Column(
                   children: <Widget>[
-                    Text('以下按钮仅限于代码事件测试：'),
+                    const Text('以下按钮仅限于代码事件测试：'),
                     TextField(
                       controller: _controllerEventID,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           hintText: '事件ID（必填）'
                       ),
                     ),
@@ -49,8 +51,8 @@ class _CustomEventPageState extends State<CustomEventPage>{
                     //   ),
                     // ),
                     Container(
-                      padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
-                      child: Text('事件参数（一个代码事件可同时支持50个不同参数）'),
+                      padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+                      child: const Text('事件参数（一个代码事件可同时支持50个不同参数）'),
                     ),
                     Column(
                       children: <Widget>[
@@ -58,7 +60,7 @@ class _CustomEventPageState extends State<CustomEventPage>{
                           children: <Widget>[
                             Expanded(
                               child: TextField(
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     hintText: 'key1'
                                 ),
                               controller: _controllerKey1,
@@ -70,7 +72,7 @@ class _CustomEventPageState extends State<CustomEventPage>{
                             ),
                             Expanded(
                               child: TextField(
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     hintText: 'value1'
                                 ),
                               controller: _controllerValue1,
@@ -95,7 +97,7 @@ class _CustomEventPageState extends State<CustomEventPage>{
                             ),
                             Expanded(
                               child: TextField(
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     hintText: 'value2'
                                 ),
                               controller: _controllerValue2,
@@ -106,15 +108,15 @@ class _CustomEventPageState extends State<CustomEventPage>{
                         )
                       ],
                     ),
-                    RaisedButton(
-                      child: Text(
+                    ElevatedButton(
+                      child: const Text(
                         '提交事件数据',
                         style: TextStyle(
                             color: Colors.white
                         ),
                       ),
                       onPressed: _submitEventData,
-                      color: Colors.blueAccent,
+                     style: buttonStyle,
                     )
                   ],
                 ),
@@ -126,17 +128,17 @@ class _CustomEventPageState extends State<CustomEventPage>{
   }
 
   void _submitEventData(){
-    if(_controllerEventID.text.length == 0){
+    if(_controllerEventID.text.isEmpty){
       showDialog(
           context: context,
         barrierDismissible: false,
         builder: (BuildContext context){
             return AlertDialog(
-              title: Text('错误：'),
-              content: Text('请填写事件ID ！'),
+              title: const Text('错误：'),
+              content: const Text('请填写事件ID ！'),
               actions: <Widget>[
-                FlatButton(
-                  child: Text('OK'),
+                TextButton(
+                  child: const Text('OK'),
                   onPressed: (){
                     Navigator.of(context).pop();
                   },
@@ -148,11 +150,11 @@ class _CustomEventPageState extends State<CustomEventPage>{
       return;
     }
     Map map = {};
-    if(_controllerKey1.text.length > 0){
+    if(_controllerKey1.text.isNotEmpty){
       map[_controllerKey1.text] = _controllerValue1.text;
     }
 
-    if(_controllerKey2.text.length > 0){
+    if(_controllerKey2.text.isNotEmpty){
       map[_controllerKey2.text] = _controllerValue2.text;
     }
     TalkingDataSDK.onEvent(

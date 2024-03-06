@@ -14,7 +14,9 @@ class ProfilePage extends StatefulWidget{
 class ProfilePageState extends State<ProfilePage>{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    final buttonStyle = ElevatedButton.styleFrom(
+      backgroundColor: Colors.blueAccent
+    );
     return Scaffold(
       appBar: AppBar(
         title: const Text('账户'),
@@ -29,7 +31,7 @@ class ProfilePageState extends State<ProfilePage>{
                     child: Column(
                       children: <Widget>[
                         const Text('注册'),
-                        RaisedButton(
+                        ElevatedButton(
                           child: const Text(
                             'onRegister',
                             style: TextStyle(
@@ -37,7 +39,7 @@ class ProfilePageState extends State<ProfilePage>{
                             ),
                           ),
                           onPressed: _onRegister,
-                          color: Colors.blueAccent,
+                          style: buttonStyle,
                         ),
                       ],
                     )
@@ -49,7 +51,7 @@ class ProfilePageState extends State<ProfilePage>{
                     child: Column(
                       children: <Widget>[
                         const Text('登录'),
-                        RaisedButton(
+                        ElevatedButton(
                           child: const Text(
                             'onLogin',
                             style: TextStyle(
@@ -57,7 +59,7 @@ class ProfilePageState extends State<ProfilePage>{
                             ),
                           ),
                           onPressed: _onLogin,
-                          color: Colors.blueAccent,
+                          style: buttonStyle,
                         ),
                       ],
                     )
@@ -69,7 +71,7 @@ class ProfilePageState extends State<ProfilePage>{
                     child: Column(
                       children: <Widget>[
                         const Text('更新账户信息'),
-                        RaisedButton(
+                        ElevatedButton(
                           child: const Text(
                             'onProfileUpdate',
                             style: TextStyle(
@@ -77,7 +79,7 @@ class ProfilePageState extends State<ProfilePage>{
                             ),
                           ),
                           onPressed: _onProfileUpdate,
-                          color: Colors.blueAccent,
+                          style: buttonStyle,
                         ),
                       ],
                     )

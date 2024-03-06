@@ -10,14 +10,15 @@
   [registrar addMethodCallDelegate:instance channel:channel];
 }
 
-+ (void)init:(NSString*)appId channelId:(NSString*)channelId custom:(NSString *)custom
-{
-   [TalkingDataSDK init:appId channelId:channelId custom:custom];
++ (void)initSDK:(NSString*)appId channelId:(NSString*)channelId custom:(NSString *)custom {
+   [TalkingDataSDK initSDK:appId channelId:channelId custom:custom];
 }
 
++(void)startA {
+    [TalkingDataSDK startA];
+}
 
--(id)checkArgument:(NSDictionary*)argument forKey:(NSString*)key ofType:(Class)clazz
-{
+-(id)checkArgument:(NSDictionary*)argument forKey:(NSString*)key ofType:(Class)clazz {
     if (key == nil || argument == nil || clazz == nil  ) {
         return nil;
     }
@@ -32,8 +33,7 @@
 }
 
 
--(TalkingDataProfileType)profileTypeConvert:(NSString*)accTypeStr
-{
+-(TalkingDataProfileType)profileTypeConvert:(NSString*)accTypeStr {
     if ([accTypeStr isEqualToString:@"ANONYMOUS"]) {
         return TalkingDataProfileTypeAnonymous;
     }else if ([accTypeStr isEqualToString:@"REGISTERED"]){
@@ -74,8 +74,7 @@
 
 
 
--(TalkingDataGender)genderConvert:(NSString*)accGenderStr
-{
+-(TalkingDataGender)genderConvert:(NSString*)accGenderStr {
     if ([accGenderStr isEqualToString:@"UNKNOWN"]) {
         return TalkingDataGenderUnknown;
     }else if ([accGenderStr isEqualToString:@"MALE"]){
@@ -122,15 +121,16 @@
 }
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-  if([@"init" isEqualToString:call.method]){
+  if([@"initSDK" isEqualToString:call.method]){
                 NSString * appId = [self checkArgument:call.arguments forKey:@"appID" ofType:[NSString class]];
                 NSString * channelId = [self checkArgument:call.arguments forKey:@"channelID" ofType:[NSString class]];
                 NSString * custom = [self checkArgument:call.arguments forKey:@"custom" ofType:[NSString class]];
                 if (appId && channelId) {
-                      [TalkingDataSDK init:appId channelId:channelId custom:custom];
+                      [TalkingDataSDK initSDK:appId channelId:channelId custom:custom];
                 }
-      }
-      else if ([@"onPageBegin" isEqualToString:call.method]){
+      }else if([@"startA" isEqualToString:call.method]){
+        [TalkingDataSDK startA];
+      } else if ([@"onPageBegin" isEqualToString:call.method]){
           NSString * pageName = [self checkArgument:call.arguments forKey:@"pageName" ofType:[NSString class]];
           if (pageName) {
               [TalkingDataSDK onPageBegin:pageName];

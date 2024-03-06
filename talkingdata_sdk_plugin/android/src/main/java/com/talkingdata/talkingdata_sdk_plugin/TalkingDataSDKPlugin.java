@@ -9,6 +9,7 @@ import com.tendcloud.tenddata.TalkingDataOrder;
 import com.tendcloud.tenddata.TalkingDataProfile;
 import com.tendcloud.tenddata.TalkingDataProfileType;
 import com.tendcloud.tenddata.TalkingDataSDK;
+import com.tendcloud.tenddata.TalkingDataSDKConfig;
 import com.tendcloud.tenddata.TalkingDataSearch;
 import com.tendcloud.tenddata.TalkingDataShoppingCart;
 import com.tendcloud.tenddata.TalkingDataTransaction;
@@ -58,9 +59,26 @@ public class TalkingDataSDKPlugin implements FlutterPlugin, MethodCallHandler {
   @Override
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
     switch (call.method) {
+      case "initSDK":
       case "init":
-        TalkingDataSDK.init(mContext,(String) call.argument("appID"),(String) call.argument("channelID"),(String) call.argument("custom"));
+        TalkingDataSDK.initSDK(mContext,(String) call.argument("appID"),(String) call.argument("channelID"),(String) call.argument("custom"));
         break;
+
+      case "startA":
+        TalkingDataSDK.startA(mContext);
+        break;
+        case "setConfig":
+          TalkingDataSDKConfig config = new TalkingDataSDKConfig();
+          boolean imei = callTransBool(call,"IMEIAndMEID");
+          boolean mac = callTransBool(call,"Mac");
+          boolean appList = callTransBool(call,"AppList");
+          boolean location =callTransBool(call,"Location");
+          config.setAppListEnabled(appList)
+                  .setLocationEnabled(location)
+                  .setMACEnabled(mac)
+                  .setIMEIAndMEIDEnabled(imei);
+          TalkingDataSDK.setConfig(config);
+          break;
       case "getDeviceID":
         result.success(TalkingDataSDK.getDeviceId(mContext));
         break;
@@ -376,6 +394,14 @@ public class TalkingDataSDKPlugin implements FlutterPlugin, MethodCallHandler {
       return (int) call.argument(dsc);
     } else {
       return 0;
+    }
+  }
+
+  private boolean callTransBool(MethodCall call,String dsc){
+    if(call.argument(dsc) != null){
+      return call.argument(dsc);
+    }else{
+      return true;
     }
   }
 }

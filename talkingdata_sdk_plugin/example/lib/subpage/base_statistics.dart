@@ -5,7 +5,9 @@ class BaseStatisticsPage extends StatelessWidget{
   late BuildContext context;
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    final buttonStyle = ElevatedButton.styleFrom(
+        backgroundColor: Colors.blueAccent
+    );
     this.context = context;
     return Container(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
@@ -42,7 +44,7 @@ class BaseStatisticsPage extends StatelessWidget{
                   child: Column(
                     children: <Widget>[
                       const Text('测试账户功能'),
-                      RaisedButton(
+                      ElevatedButton(
                         child: const Text(
                           'Profile',
                           style: TextStyle(
@@ -50,7 +52,7 @@ class BaseStatisticsPage extends StatelessWidget{
                           ),
                         ),
                         onPressed: _profile,
-                        color: Colors.blueAccent,
+                       style: buttonStyle,
                       ),
                     ],
                   )

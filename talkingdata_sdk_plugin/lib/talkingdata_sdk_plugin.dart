@@ -1,17 +1,31 @@
-//version: 5.0.2
+//version: 5.0.3
 import 'dart:async';
+import 'dart:ffi';
 import 'package:flutter/services.dart';
 import 'dart:io';
 
 class TalkingDataSDK {
   static const MethodChannel _channel = MethodChannel('talkingdata_sdk_plugin');
 
-  static Future<void> init({required String appID, required String channelID, String? custom}) async{
-    return await _channel.invokeMethod('init', <String, dynamic>{
+
+  static Future<void> setConfig({required TalkingDataSDKConfig config}) async{
+    return await _channel.invokeMethod('setConfig',<String ,dynamic>{
+      'IMEIAndMEID':config.IMEIAndMEID,
+      'Mac':config.MAC,
+      'AppList':config.AppList,
+      'Location':config.Location
+    });
+  }
+
+  static Future<void> initSDK({required String appID, required String channelID, String? custom}) async{
+    return await _channel.invokeMethod('initSDK', <String, dynamic>{
       'appID': appID,
       'channelID': channelID,
       'custom': custom
     });
+  }
+  static Future<void> startA() async{
+    return await _channel.invokeMethod("startA");
   }
 
   static Future<String> getDeviceID() async {
@@ -516,4 +530,14 @@ class TalkingDataTransaction {
     this.endDate,
     this.currencyType,
     this.content});
+}
+
+class TalkingDataSDKConfig {
+  bool IMEIAndMEID =true;
+  bool MAC = true;
+  bool AppList = true;
+  bool Location = true;
+
+
+  TalkingDataSDKConfig({this.IMEIAndMEID=true,this.MAC=true,this.AppList=true,this.Location=true});
 }

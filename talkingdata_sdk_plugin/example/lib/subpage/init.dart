@@ -29,16 +29,39 @@ class _InitPageState extends State<InitPage>{
             onPressed: () {
               _init();
             },
-          )
+          ),
+          const SizedBox(height: 20,),
+          const Text("点击启动分析"),
+          ElevatedButton(
+            child: const Text("startA"),
+              onPressed: (){
+                _startA();
+              }),
+          const SizedBox(height: 20,),
+          const Text("设置收集配置信息"),
+          ElevatedButton(
+              child:const Text("setConfig"),
+              onPressed:() {
+                _setConfig();
+              }
+              )
         ],
       ),
     );
   }
 
 
-  _init() async{
-    TalkingDataSDK.init(appID: "Your App ID",channelID: "Your Channel ID",custom: "custom");
+  _setConfig() async{
+    TalkingDataSDKConfig config = TalkingDataSDKConfig(IMEIAndMEID: false,MAC:false,Location:false);
+    TalkingDataSDK.setConfig(config:config);
   }
+  _init() async{
+    TalkingDataSDK.initSDK(appID: "Your App ID",channelID: "Your Channel ID",custom: "custom");
+  }
+  _startA() async{
+    TalkingDataSDK.startA();
+  }
+
 }
 
 class ButtonWidget extends StatefulWidget {
@@ -62,7 +85,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: RaisedButton(
+      child: ElevatedButton(
         child: const Text('init',style: TextStyle(fontSize: 20),),
         onPressed: _onPressed,
       ),
