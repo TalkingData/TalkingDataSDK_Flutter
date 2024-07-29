@@ -1,4 +1,4 @@
-//version: 5.0.3
+//version: 5.0.4
 import 'dart:async';
 import 'dart:ffi';
 import 'package:flutter/services.dart';

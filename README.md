@@ -19,9 +19,7 @@ TalkingData Flutter 平台 SDK 由`封装层`和`Native SDK`两部分构成，�
      将最新的 `.jar `文件复制到 `talkingdata_sdk_plugin/android/libs` 目录下
 
    * iOS 平台
-     将最新的 `.a`文件复制到 `talkingdata_sdk_plugin/ios/Assets` 目录下
-
-     将最新的`.h` 文件赋值到`talkingdata_sdk_plugin/ios/Classes`目录下
+     将最新的 `.xcframework` 文件复制到 `talkingdata_sdk_plugin/ios/Frameworks` 目录下
 
 4. 按`Native SDK`功能选项对`封装层`代码进行必要的修改，详见“注意事项”第2条；
 
@@ -61,7 +59,7 @@ TalkingData Flutter 平台 SDK 由`封装层`和`Native SDK`两部分构成，�
 
 iOS:
 
- `TalkingDataSDKPlugin.m`
+`TalkingDataSDKPlugin.m`
 
 Android:
 

@@ -17,7 +17,7 @@ TalkingData SDK Flutter plugin.
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
   s.platform = :ios, '9.0'
-  s.vendored_libraries = 'Assets/*.a'
+  s.vendored_frameworks = 'Frameworks/TalkingDataSDK.xcframework'
   s.libraries = 'c++', 'z'
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
